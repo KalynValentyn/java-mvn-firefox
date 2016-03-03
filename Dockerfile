@@ -4,5 +4,4 @@ RUN wget http://packages.linuxmint.com/pool/main/l/linuxmint-keyring/linuxmint-k
   && sh -c 'echo "deb http://packages.linuxmint.com debian import" >> /etc/apt/sources.list' \
   && apt-get update -y \
   && apt-get install firefox -y \
-  && apt-get install xvfb -y \
-  && apt-get install firefox-mozilla-build
+  && apt-get install xvfb -y 
