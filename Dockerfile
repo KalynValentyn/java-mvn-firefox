@@ -1,19 +1,21 @@
 FROM ubuntu:14.04
-RUN \
-  apt-get install software-properties-common python-software-properties -y && \
-  echo oracle-java8-installer shared/accepted-oracle-license-v1-1 select true | debconf-set-selections && \
-  add-apt-repository -y ppa:webupd8team/java && \
-  apt-get update && \
-  apt-get install -y oracle-java8-installer && \
-  rm -rf /var/lib/apt/lists/* && \
-  rm -rf /var/cache/oracle-jdk8-installer
+RUN sed -i.bak 's/main$/main universe/' /etc/apt/sources.list
+RUN apt-get update
+RUN apt-get upgrade -y
 
+# Install and setup project dependencies
+RUN apt-get install -y curl wget
+RUN locale-gen en_US en_US.UTF-8
 
-# Define working directory.
-WORKDIR /data
+#prepare for Java download
+RUN apt-get install -y python-software-properties
+RUN apt-get install -y software-properties-common
 
-# Define commonly used JAVA_HOME variable
-ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
+#grab oracle java (auto accept licence)
+RUN add-apt-repository -y ppa:webupd8team/java
+RUN apt-get update
+RUN echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true | /usr/bin/debconf-set-selections
+RUN apt-get install -y oracle-java7-installer
 
 # Define default command.
 CMD ["bash"] 
