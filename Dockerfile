@@ -20,8 +20,12 @@ RUN apt-get install -y oracle-java7-installer
 # Install maven
 RUN apt-get install -y maven
 
-# Instal
+# Install
 RUN apt-get install -y firefox
+
+# Install display server
+RUN apt-get install -y xvfb
+
 
 # Define default command.
 CMD ["bash"] 
