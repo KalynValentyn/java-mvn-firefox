@@ -25,7 +25,7 @@ RUN apt-get install -y firefox
 
 # Install display server
 RUN apt-get install -y xvfb
-
+RUN apt-get install -y x11-apps
 
 # Define default command.
 CMD ["bash"] 
