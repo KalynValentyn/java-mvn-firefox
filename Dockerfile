@@ -25,7 +25,7 @@ RUN apt-get install -y xvfb
 RUN apt-get install -y x11-apps
 
 # Install Firefox
-RUN apt-get install -y firefox
+RUN apt-get install -y firefox-38.0.5.
 # Install Chrome
 RUN wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | apt-key add - 
 RUN sh -c 'echo "deb http://dl.google.com/linux/chrome/deb/ stable main" >> /etc/apt/sources.list.d/google.list'
