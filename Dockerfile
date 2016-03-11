@@ -23,6 +23,8 @@ RUN apt-get install -y xserver-xorg-video-dummy
 RUN apt-get install -y xfonts-cyrillic xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable
 # RUN apt-get install -y x11-apps
 
+ADD xorg.conf /etc/X11/xorg.conf
+
 # Install Firefox
 RUN apt-get install -y firefox
 # Install Chrome
