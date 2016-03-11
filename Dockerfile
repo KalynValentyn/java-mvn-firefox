@@ -18,9 +18,10 @@ RUN echo oracle-java7-installer shared/accepted-oracle-license-v1-1 select true 
 RUN apt-get install -y oracle-java7-installer
 
 # Install display server
-RUN apt-get install -y xvfb gtk2-engines-pixbuf
+RUN apt-get install -y xserver-xorg-video-dummy
+# RUN apt-get install -y xvfb gtk2-engines-pixbuf
 RUN apt-get install -y xfonts-cyrillic xfonts-100dpi xfonts-75dpi xfonts-base xfonts-scalable
-RUN apt-get install -y x11-apps
+# RUN apt-get install -y x11-apps
 
 # Install Firefox
 RUN apt-get install -y firefox
